@@ -8,26 +8,17 @@
  * @format
  */
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, {type PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React from 'react';
+import {Provider} from 'react-redux';
+import {store} from './src/app/store';
 import Navigator from './src/navigation/Navigator';
-import Login from './src/screens/Login';
-import Register from './src/screens/Register';
-
-const Stack = createNativeStackNavigator();
 
 const App: React.FC = () => {
-  return <Navigator />;
+  return (
+    <Provider store={store}>
+      <Navigator />
+    </Provider>
+  );
 };
 
 export default App;
